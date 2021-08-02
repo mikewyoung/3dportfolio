@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Young - Web Developer</title>
+    <meta name="description" content="I'm a freelance software developer from Delaware, specializing in web applications and UX.">
+    <link rel="shortcut icon" type="image/png" href="images/logo.png"/>
+    <link rel="stylesheet" href="styles.css">
+    <meta property="og:title" content="Michael Young - Web Developer">
+    <meta property="og:description" content="I'm a freelance software developer from Delaware, specializing in web applications and UX.">
+    <meta property="og:image" content="https://michaelyoung.net/images/thumbnail.png">
+    <meta property="og:url" content="https://michaelyoung.net/">
+</head>
+<body onload="hideInput()">
+    <canvas id="renderCanvas">Sorry, you must have canvas enabled to view this site properly.</canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.2/dat.gui.min.js"></script>
+    <script src="https://preview.babylonjs.com/babylon.js"></script>
+    <script src="https://preview.babylonjs.com/materialsLibrary/babylonjs.materials.min.js"></script>
+    <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
+    <script src="https://preview.babylonjs.com/serializers/babylonjs.serializers.min.js"></script>
+    <script src="https://preview.babylonjs.com/gui/babylon.gui.min.js"></script>
+    <script src="https://preview.babylonjs.com/inspector/babylon.inspector.bundle.js"></script>
+    <script src="main.js"></script>
+    <script src="jquery.js"></script>
+    <div id="loading-overlay">
+        <div id="welcome-message">Loading, please wait...</div>
+    </div>
+
+    <div id="thank-you-overlay"><div id="thank-you">Thank you<br>I will be in touch.</div></div>
+
+    <div id="navbar-wrapper">
+        <div id="navbar">
+            <a href="#" onclick="setTarget(0)" id="logo">Michael Young</a>
+            <div id="primary-nav">
+                <ul>
+                    <li><a href="#" onclick="setTarget(1)">About</a></li>
+                    <li><a href="#" onclick="setTarget(3)">Featured</a></li>
+                    <li><a href="#" onclick="setTarget(2)">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div id="content-wrapper">
+        <div class="content" id="about">
+            <a href="#" onclick="toggleContent()" class="hide-content">Hide Content</a>
+            <h1>About</h1>
+            <div>I'm a web & software developer obsessed with creating unique, interactive user experiences.</div>
+            <h2>Skills</h2>
+            <div id="skills">
+                <div class="skill"><img src="images/html5.svg"></img>
+                    <div>HTML5</div>
+                </div>
+
+                <div class="skill"><img src="images/css-5.svg"></img>
+                    <div>CSS3</div>
+                </div>
+
+                <div class="skill"><img src="images/logo-javascript.svg"></img>
+                    <div>Javascript</div>
+                </div>
+
+                <div class="skill"><img src="images/nodejs-icon.svg"></img>
+                    <div>NodeJS</div>
+                </div>
+
+                <div class="skill"><img src="images/wordpress.svg"></img>
+                    <div>Wordpress</div>
+                </div>
+
+                <div class="skill"><img src="images/php-logo.svg"></img>
+                    <div>PHP</div>
+                </div>
+
+                <div class="skill"><img src="images/mysql-dolphin.png"></img>
+                    <div>MySQL</div>
+                </div>
+
+                <div class="skill"><img src="images/mongodb-icon-1.svg"></img>
+                    <div>MongoDB</div>
+                </div>
+
+                <div class="skill"><img src="images/websocket-seeklogo.com.svg"></img>
+                    <div>WebSockets</div>
+                </div>
+            </div>
+
+            <h2>Education</h2>
+            <div id="education">
+                <div class="school">
+                    <div>Salisbury University</div>
+                    <span style="font-size: 0.75em">B.S. Information Systems</span>
+                </div>
+
+                <div class="school">
+                    <div>University of Delaware</div>
+                    <span style="font-size: 0.75em">A.A. University Studies</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content" id="featured">
+            <a href="#" onclick="toggleContent()" class="hide-content">Hide Content</a>
+            <h1>Featured works</h1>
+            <div class="website">
+                <h2>Lifestyle Document Management</h2>
+                <a href="https://lifestyledocumentmanagement.com"><img src="images/ldmi.png"></a>
+                <div>
+                    This website was updated from an old design done in 2003. It is a fully responsive static website built from scratch.
+                </div>
+            </div>
+            <div class="website">
+                <h2>The Hen's Den</h2>
+                <div>Currently awaiting launch until the owner is ready. This website is Wordpress e-commerce solution for an auction business.</div>
+            </div>
+        </div>
+
+        <div class="content" id="contact">
+            <a href="#" onclick="toggleContent()" class="hide-content">Hide Content</a>
+            <h1>Contact</h1>
+            <form>
+                <div>
+                    <label for="name">Name <span id="name-error"></span></label>
+                    <input id="name" type="text">
+                </div>
+                <div>
+                    <label for="last-name" id="last-name-label">Last Name</label>
+                    <input id="last-name" type="text">
+                </div>
+                <div>
+                    <label for="business">Business (if applicable)</label>
+                    <input id="business" type="text">
+                </div>
+                <div>
+                    <label for="email">Email <span id="email-error"></span></label>
+                    <input id="email" type="text">
+                </div>
+                <div>
+                    <label for="phone">Phone <span id="phone-error"></span></label>
+                    <input id="phone" type="text">
+                </div>
+
+                <div>
+                    <label for="information">What can I help you with? <span id="message-error"></span></label>
+                    <textarea id="information"></textarea>
+                </div>
+                <div>
+                    <a href="#" id="send-button" onclick="submitContact()">Submit</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="instructions">
+        <div id="instructions-inner">Swipe or use your arrow keys to explore.</div>
+    </div>
+    <div id="toggle-content-wrapper"><a id="toggle-content" href="#" onclick="toggleContent()">Show Content</a></div>
+</body>
+    
+</html>

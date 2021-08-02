@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #afbebe;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #afbebe;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+#renderCanvas{
+    display: block;
+    z-index: -30;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    z-index:-1;
+    pointer-events:all !important;
+}
+
+#loading-overlay{
+    position: fixed;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: none;
+    margin-right: none;
+    text-align: center;
+    animation-fill-mode: forwards;
+    font-size: 3em;
+    pointer-events: all !important;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut{
+    0%{
+        opacity: 1;
+        width: 100vw;
+        height: 100vh;
+    }
+
+
+    99.9%{
+        opacity: 0;
+        width: 100vw;
+        height: 100vh;
+    }
+
+    100%{
+        opacity: 0;
+        width: 0vw;
+        height: 0vh;
+    }
+}
+
+#welcome-message{
+    margin-left: none;
+    margin-right: none;
+    margin-top: 40vh;
+    margin-bottom: auto;
+    animation-name: fadeIn;
+    animation-duration: 3s;
+    font-family: 'Caveat', cursive;
+}
+
+#navbar-wrapper{
+    display: block;
+    background-color: #ffffff7f;
+}
+
+#navbar{
+    display: block;
+    text-align: center;
+    max-width: 1100px;
+    font-size: 3em;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Josefin Sans', sans-serif;
+    pointer-events:all !important;
+}
+
+#logo{
+    font-family: 'Caveat', cursive;
+}
+
+#navbar a{
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+#primary-nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#primary-nav ul li{
+    display: inline-block;
+    font-size: 0.5em;
+}
+
+.content{
+    display: block;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff7f;
+    font-family: 'Josefin Sans', sans-serif;
+    color: black;
+    overflow-y: auto;
+    font-size: 1.5em;
+    max-width: 1100px;
+    pointer-events: all !important;
+    max-height: 75vh;
+}
+
+.content h1{
+    display: block;
+    padding: 1rem 0 1rem 0;
+    margin: 0;
+    font-size: 3em;
+    font-family: 'Caveat', cursive;
+}
+
+.content h2{
+    display: block;
+    padding: 1rem 0 1rem 0;
+    margin: 0;
+    font-size: 2em;
+    font-family: 'Caveat', cursive;
+}
+
+#content-wrapper{
+    padding: 1em;
+    display: block;
+    pointer-events: none;
+    margin-top: 1em;
+}
+
+#instructions{
+    position: absolute;
+    width: 100%;
+    bottom: 10%;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3em;
+    color: white;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#instructions-inner{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0em 1em;
+}
+
+#toggle-content-wrapper{
+    display: none;
+    position: absolute;
+    width: 100%;
+    bottom: 10%;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 3em;
+    color: white;
+}
+
+#toggle-content{
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    width: fit-content;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: .5em;
+    pointer-events: all !important;
+    border-style: solid;
+}
+
+#skills, #education{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.skill, .school{
+    display: block;
+    flex: 1;
+    text-align: center;
+    margin: auto 1em auto 1em;
+    flex: 1 0 25%;
+}
+
+.skill img, .school img{
+    width: 2em;
+    height: 2em;
+    padding-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#about{
+    display: none;
+}
+
+#featured{
+    display: none;
+}
+
+#contact{
+    display: none;
+}
+
+.website{
+    display: block;
+}
+
+#featured img{
+    width: 100%;
+    object-fit: contain;
+}
+
+.hide-content{
+    display: block;
+    text-align: right;
+    color: inherit;
+    text-decoration: none;
+}
+
+form div{
+    width: 100%;
+    margin-bottom: 0.5em;
+}
+
+form input[type=text], textarea{
+    width: 100%;
+    padding: .5em;
+    font-family: inherit;
+    font-size: inherit;
+    padding: .4em 0em .4em 0em;
+    width: 100%;
+}
+
+form textarea{
+    height: 5em;
+    resize: vertical;
+}
+
+.input-div{
+    margin: 1em 0em 1em 0em 1em;
+}
+
+label{
+    padding-right: .5em;
+}
+
+#send-button{
+    display: block;
+    font-family: inherit;
+    text-decoration: none;
+    color: inherit;
+    border-style: solid;
+    padding: 0.5em;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#thank-you{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40vh;
+    margin-bottom: auto;
+}
+#thank-you-overlay{
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    font-family: 'Caveat', cursive;
+    font-size: 5em;
+    animation-direction: forwards;
+    opacity: 1;
+    animation-duration: 2s;
+}
+
+@media only screen and (max-width: 768px){
+    body{
+        font-size: 0.85em;
+    }
+
+}
+
+@media only screen and (max-width: 1024px){
+    body{
+        font-size: 1em;
+    }
+
+}
+
+@media only screen and (max-width: 460px){
+    body{
+        font-size: 0.75em;
+    }
+}
+
+#name-error, #email-error, #phone-error, #message-error{
+    color: red;
+}
